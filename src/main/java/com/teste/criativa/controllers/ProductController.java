@@ -50,7 +50,14 @@ public class ProductController {
 	@DeleteMapping("/{id}")
 	@Transactional
 	public void delete (@PathVariable Long id) {
-		repository.deleteById(id);
+		repository.deleteById(id); 
+	}
+	
+	@DeleteMapping("inativar/{id}")
+	@Transactional
+	public void inativar (@PathVariable Long id) {
+		var product = repository.getReferenceById(id);
+		product.inativar();
 	}
 }
 

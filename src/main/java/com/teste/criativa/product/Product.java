@@ -24,8 +24,10 @@ import lombok.Setter;
 public class Product {
 	
 	public Product(CreateProduct dados) {
+		this.ativo = true;
 		this.nome = dados.nome();
 		this.quantidade = dados.quantidade();
+		this.price = dados.price();
 		this.fornecedor = dados.fornecedor();
 	}
 
@@ -37,8 +39,12 @@ public class Product {
 	
 	private int quantidade;
 	
+	private double price;
+	
 	@Enumerated(EnumType.STRING)
 	private Fornecedor fornecedor;
+	
+	private Boolean ativo;
 
 	public void updateInformations(@Valid UpdateProduct dados) {
 		
@@ -49,6 +55,10 @@ public class Product {
 		if(dados.fornecedor()!= null ) {
 			this.fornecedor = dados.fornecedor();
 		}
+	}
+
+	public void inativar() {
+		this.ativo = false;
 	}
 
 }
