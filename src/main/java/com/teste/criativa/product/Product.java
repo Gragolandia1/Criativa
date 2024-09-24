@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -39,7 +40,7 @@ public class Product {
 	@Enumerated(EnumType.STRING)
 	private Fornecedor fornecedor;
 
-	public void updateInformations(UpdateProduct dados) {
+	public void updateInformations(@Valid UpdateProduct dados) {
 		
 		if(dados.nome()!= null ) {
 		this.nome = dados.nome();
