@@ -39,4 +39,15 @@ public class Product {
 	@Enumerated(EnumType.STRING)
 	private Fornecedor fornecedor;
 
+	public void updateInformations(UpdateProduct dados) {
+		
+		if(dados.nome()!= null ) {
+		this.nome = dados.nome();
+		}
+		
+		if(dados.fornecedor()!= null ) {
+			this.fornecedor = dados.fornecedor();
+		}
+	}
+
 }
