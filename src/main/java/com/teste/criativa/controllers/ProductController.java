@@ -17,6 +17,7 @@ import com.teste.criativa.product.ProductRepository;
 import com.teste.criativa.product.UpdateProduct;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -28,7 +29,7 @@ public class ProductController {
 	
 	@PostMapping
 	@Transactional
-	public void create(@RequestBody CreateProduct dados) {
+	public void create(@RequestBody @Valid CreateProduct dados) {
 		repository.save(new Product(dados));
 	}
 	
@@ -39,8 +40,9 @@ public class ProductController {
 	
 	@PutMapping
 	@Transactional
-	public void update(@RequestBody UpdateProduct dados) {
+	public void update(@RequestBody @Valid UpdateProduct dados) {
 		var product = repository.getReferenceById(dados.id());
+		product.updateInformations(dados);
 	}
 }
 
