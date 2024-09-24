@@ -43,6 +43,10 @@ public class ProductController {
 	public List<GetProduct> getAllFalse() {
 		return repository.findAllByAtivoFalse().stream().map(GetProduct::new).toList();
 	}
+	@GetMapping("/{id}")
+	public List<GetProduct> getById(@PathVariable Long id) {
+		return repository.findById(id).stream().map(GetProduct::new).toList();
+	}
 	
 	@PutMapping
 	@Transactional
@@ -62,7 +66,6 @@ public class ProductController {
 	public void delete (@PathVariable Long id) {
 		repository.deleteById(id); 
 	}
-	
 	@DeleteMapping("inativar/{id}")
 	@Transactional
 	public void inativar (@PathVariable Long id) {
