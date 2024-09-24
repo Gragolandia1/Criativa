@@ -1,15 +1,27 @@
 package com.teste.criativa.funcionario;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotBlank;
 
 public record CreateFuncionario(
-	     String nome,
-		 String sobrenome,
+		
+		@NotBlank
+	    String nome,
+	    
+	    @NotBlank
+		String sobrenome,
+		
+		@CPF
+		@NotBlank
+		String cpf,
 		 
-		 @Enumerated
-		 Sexo sexo,
+		@Enumerated
+		Sexo sexo,
 		 
-		 int idade,
-		 int cpf ){
+		int idade
+		
+		 ){
 
 }

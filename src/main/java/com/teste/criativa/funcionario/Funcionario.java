@@ -1,5 +1,7 @@
 package com.teste.criativa.funcionario;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -25,9 +27,9 @@ public class Funcionario {
 	public Funcionario(CreateFuncionario dados) {
 		this.nome = dados.nome();
 		this.sobrenome = dados.sobrenome();
+		this.cpf = dados.cpf();
 		this.sexo = dados.sexo();
 		this.idade = dados.idade();
-		this.cpf = dados.cpf();
 	}
 
 	@Id
@@ -38,11 +40,12 @@ public class Funcionario {
 	
 	private String sobrenome;
 	
+	private String cpf;
+	
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	
 	private int idade;
 	
-	private int cpf;
 
 }

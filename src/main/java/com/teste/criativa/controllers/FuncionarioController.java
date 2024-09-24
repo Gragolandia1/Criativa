@@ -13,7 +13,9 @@ import com.teste.criativa.funcionario.CreateFuncionario;
 import com.teste.criativa.funcionario.Funcionario;
 import com.teste.criativa.funcionario.FuncionarioRepository;
 import com.teste.criativa.funcionario.GetFuncionario;
-import com.teste.criativa.product.GetProduct;
+
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/funcionarios")
@@ -23,7 +25,8 @@ public class FuncionarioController {
 	FuncionarioRepository repository;
 	
 	@PostMapping
-	public void create (@RequestBody CreateFuncionario dados) {
+	@Transactional
+	public void create (@RequestBody @Valid CreateFuncionario dados) {
 		repository.save(new Funcionario(dados));
 	}
 	
