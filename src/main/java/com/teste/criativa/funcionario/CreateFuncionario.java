@@ -14,7 +14,7 @@ public record CreateFuncionario(
 		String sobrenome,
 		
 		@CPF
-		@NotBlank
+		@NotBlank(message = "CPF é obrigatório")
 		String cpf,
 		 
 		@Enumerated
