@@ -1,6 +1,5 @@
 package com.teste.criativa.funcionario;
 
-import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -47,6 +46,18 @@ public class Funcionario {
 	private Sexo sexo;
 	
 	private int idade;
-	
 
+	public void updateInformations(@Valid UpdateFuncionario dados) {
+		if(dados.nome()!= null ) {
+		this.nome = dados.nome();
+		}
+		if(dados.sobrenome()!= null ) {
+			this.sobrenome = dados.sobrenome();
+		}
+		
+		if(dados.sexo()!= null ) {
+			this.sexo = dados.sexo();
+		}
+	}	
 }
+	

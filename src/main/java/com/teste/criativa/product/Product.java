@@ -61,4 +61,9 @@ public class Product {
 		this.ativo = false;
 	}
 
+	public void ativar() {
+		this.ativo = true;
+		
+	}
+
 }

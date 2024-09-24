@@ -35,9 +35,13 @@ public class ProductController {
 		repository.save(new Product(dados));
 	}
 	
-	@GetMapping
-	public List<GetProduct> getAll() {
-		return repository.findAll().stream().map(GetProduct::new).toList();
+	@GetMapping("/true")
+	public List<GetProduct> getAllTrue() {
+		return repository.findAllByAtivoTrue().stream().map(GetProduct::new).toList();
+	}
+	@GetMapping("/false")
+	public List<GetProduct> getAllFalse() {
+		return repository.findAllByAtivoFalse().stream().map(GetProduct::new).toList();
 	}
 	
 	@PutMapping
@@ -45,6 +49,12 @@ public class ProductController {
 	public void update(@RequestBody @Valid UpdateProduct dados) {
 		var product = repository.getReferenceById(dados.id());
 		product.updateInformations(dados);
+	}
+	@PutMapping("ativar/{id}")
+	@Transactional
+	public void reativar (@PathVariable Long id) {
+		var product = repository.getReferenceById(id);
+		product.ativar();
 	}
 	
 	@DeleteMapping("/{id}")

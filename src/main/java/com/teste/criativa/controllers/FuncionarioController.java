@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import com.teste.criativa.funcionario.CreateFuncionario;
 import com.teste.criativa.funcionario.Funcionario;
 import com.teste.criativa.funcionario.FuncionarioRepository;
 import com.teste.criativa.funcionario.GetFuncionario;
+import com.teste.criativa.funcionario.UpdateFuncionario;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -35,6 +37,13 @@ public class FuncionarioController {
 	@GetMapping
 	public List<GetFuncionario> getAll() {
 		return repository.findAll().stream().map(GetFuncionario::new).toList();
+	}
+	
+	@PutMapping
+	@Transactional
+	public void update (@RequestBody @Valid UpdateFuncionario dados) {
+		var funcionario = repository.getReferenceById(dados.id());
+		funcionario.updateInformations(dados);
 	}
 	
 	@DeleteMapping("/{id}")
