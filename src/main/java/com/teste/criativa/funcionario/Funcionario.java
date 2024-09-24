@@ -1,6 +1,8 @@
 package com.teste.criativa.funcionario;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,7 +38,8 @@ public class Funcionario {
 	
 	private String sobrenome;
 	
-	private String sexo;
+	@Enumerated(EnumType.STRING)
+	private Sexo sexo;
 	
 	private int idade;
 	
