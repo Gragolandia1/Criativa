@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.teste.criativa.funcionario.CreateFuncionario;
+import com.teste.criativa.funcionario.FuncionarioCreate;
 import com.teste.criativa.funcionario.Funcionario;
-import com.teste.criativa.funcionario.FuncionarioRepository;
-import com.teste.criativa.funcionario.GetFuncionario;
-import com.teste.criativa.funcionario.UpdateFuncionario;
+import com.teste.criativa.funcionario.RepositoryFuncionario;
+import com.teste.criativa.funcionario.FuncionarioGet;
+import com.teste.criativa.funcionario.FuncionarioUpdate;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -26,22 +26,22 @@ import jakarta.validation.Valid;
 public class FuncionarioController {
 	
 	@Autowired
-	FuncionarioRepository repository;
+	RepositoryFuncionario repository;
 	
 	@PostMapping
 	@Transactional
-	public void create (@RequestBody @Valid CreateFuncionario dados) {
+	public void create (@RequestBody @Valid FuncionarioCreate dados) {
 		repository.save(new Funcionario(dados));
 	}
 	
 	@GetMapping
-	public List<GetFuncionario> getAll() {
-		return repository.findAll().stream().map(GetFuncionario::new).toList();
+	public List<FuncionarioGet> getAll() {
+		return repository.findAll().stream().map(FuncionarioGet::new).toList();
 	}
 	
 	@PutMapping
 	@Transactional
-	public void update (@RequestBody @Valid UpdateFuncionario dados) {
+	public void update (@RequestBody @Valid FuncionarioUpdate dados) {
 		var funcionario = repository.getReferenceById(dados.id());
 		funcionario.updateInformations(dados);
 	}

@@ -6,7 +6,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record CreateFuncionario(
+public record FuncionarioCreate(
 		
 		@NotBlank
 		@Size(min = 1, max = 20)

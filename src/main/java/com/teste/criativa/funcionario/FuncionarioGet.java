@@ -1,7 +1,7 @@
 package com.teste.criativa.funcionario;
 
 
-public record GetFuncionario(
+public record FuncionarioGet(
 		
 		 Long id,
 		 
@@ -13,7 +13,7 @@ public record GetFuncionario(
 		 
 		 int idade
 		  ) {
-	public GetFuncionario(Funcionario funcionario) {
+	public FuncionarioGet(Funcionario funcionario) {
 		this(
 				funcionario.getId(),
 				funcionario.getNome(),

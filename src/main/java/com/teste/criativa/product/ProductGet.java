@@ -1,6 +1,7 @@
 package com.teste.criativa.product;
 
-public record DadosProduct(
+public record ProductGet(
+		
 		Long id,
 		
 		String nome,
@@ -12,8 +13,8 @@ public record DadosProduct(
 		Fornecedor fornecedor,
 		
 		Boolean ativo) {
-
-	public DadosProduct(Product product) {
+	
+	public ProductGet(Product product) {
 		this(
 				product.getId(),
 				product.getNome(),
@@ -21,6 +22,7 @@ public record DadosProduct(
 				product.getPrice(),
 				product.getFornecedor(),
 				product.getAtivo());
+		
 	}
 
 }

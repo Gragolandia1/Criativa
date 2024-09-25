@@ -24,7 +24,7 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 public class Funcionario {
 	
-	public Funcionario(CreateFuncionario dados) {
+	public Funcionario(FuncionarioCreate dados) {
 		this.nome = dados.nome();
 		this.sobrenome = dados.sobrenome();
 		this.cpf = dados.cpf();
@@ -47,7 +47,7 @@ public class Funcionario {
 	
 	private int idade;
 
-	public void updateInformations(@Valid UpdateFuncionario dados) {
+	public void updateInformations(@Valid FuncionarioUpdate dados) {
 		if(dados.nome()!= null ) {
 		this.nome = dados.nome();
 		}

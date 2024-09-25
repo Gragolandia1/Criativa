@@ -23,7 +23,7 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 public class Product {
 	
-	public Product(CreateProduct dados) {
+	public Product(ProductCreate dados) {
 		this.ativo = true;
 		this.nome = dados.nome();
 		this.quantidade = dados.quantidade();
@@ -46,7 +46,7 @@ public class Product {
 	
 	private Boolean ativo;
 
-	public void updateInformations(@Valid UpdateProduct dados) {
+	public void updateInformations(@Valid ProductUpdate dados) {
 		
 		if(dados.nome()!= null ) {
 		this.nome = dados.nome();
