@@ -12,6 +12,8 @@ public record ProductUpdate(
 		@NotBlank
 		String nome,
 		
+		String codigoBarras,
+		
 		int quantidade,
 		
 		double price, 

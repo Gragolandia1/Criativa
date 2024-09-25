@@ -6,6 +6,8 @@ public record ProductGet(
 		
 		String nome,
 		
+		String codigoBarras,
+		
 		int quantidade,
 		
 		double price,
@@ -18,6 +20,7 @@ public record ProductGet(
 		this(
 				product.getId(),
 				product.getNome(),
+				product.getCodigoBarras(),
 				product.getQuantidade(),
 				product.getPrice(),
 				product.getFornecedor(),

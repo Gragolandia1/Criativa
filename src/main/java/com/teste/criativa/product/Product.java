@@ -26,6 +26,7 @@ public class Product {
 	public Product(ProductCreate dados) {
 		this.ativo = true;
 		this.nome = dados.nome();
+		this.codigoBarras = dados.codigoBarras();
 		this.quantidade = dados.quantidade();
 		this.price = dados.price();
 		this.fornecedor = dados.fornecedor();
@@ -36,6 +37,8 @@ public class Product {
 	private Long id;
 	
 	private String nome;
+	
+	private String codigoBarras;
 	
 	private int quantidade;
 	

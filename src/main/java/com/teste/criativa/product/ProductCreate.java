@@ -8,6 +8,8 @@ public record ProductCreate(
 		@NotBlank
 		String nome,
 		
+		String codigoBarras,
+		
 		int quantidade,
 		
 		double price,
