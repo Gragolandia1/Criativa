@@ -1,5 +1,8 @@
 package com.teste.criativa.product;
 
+import com.teste.criativa.product.dtos.DadosCadastroProduto;
+import com.teste.criativa.product.dtos.DadosAtualizarProduto;
+import com.teste.criativa.product.enums.Fornecedor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -18,17 +21,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity (name = "product")
+@Entity (name = "Product")
 @Table(name = "products")
 @EqualsAndHashCode(of = "id")
 public class Product {
 	
-	public Product(ProductCreate dados) {
+	public Product(DadosCadastroProduto dados) {
 		this.ativo = true;
 		this.nome = dados.nome();
 		this.codigoBarras = dados.codigoBarras();
 		this.quantidade = dados.quantidade();
-		this.price = dados.price();
+		this.preco = dados.preco();
 		this.fornecedor = dados.fornecedor();
 	}
 
@@ -40,16 +43,16 @@ public class Product {
 	
 	private String codigoBarras;
 	
-	private int quantidade;
+	private String quantidade;
 	
-	private double price;
+	private String preco;
 	
 	@Enumerated(EnumType.STRING)
 	private Fornecedor fornecedor;
 	
 	private Boolean ativo;
 
-	public void updateInformations(@Valid ProductUpdate dados) {
+	public void updateInformations(@Valid DadosAtualizarProduto dados) {
 		
 		if(dados.nome()!= null ) {
 		this.nome = dados.nome();

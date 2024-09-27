@@ -1,6 +1,9 @@
 package com.teste.criativa.funcionario;
 
 
+import com.teste.criativa.funcionario.dtos.DadosAtualizarFuncionario;
+import com.teste.criativa.funcionario.dtos.DadosCadastroFuncionario;
+import com.teste.criativa.funcionario.enums.Sexo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -24,7 +27,7 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 public class Funcionario {
 	
-	public Funcionario(FuncionarioCreate dados) {
+	public Funcionario(DadosCadastroFuncionario dados) {
 		this.nome = dados.nome();
 		this.sobrenome = dados.sobrenome();
 		this.cpf = dados.cpf();
@@ -45,9 +48,9 @@ public class Funcionario {
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	
-	private int idade;
+	private String idade;
 
-	public void updateInformations(@Valid FuncionarioUpdate dados) {
+	public void atualizarInformacoes (@Valid DadosAtualizarFuncionario dados) {
 		if(dados.nome()!= null ) {
 		this.nome = dados.nome();
 		}
@@ -58,6 +61,7 @@ public class Funcionario {
 		if(dados.sexo()!= null ) {
 			this.sexo = dados.sexo();
 		}
-	}	
+	}
 }
+
 	

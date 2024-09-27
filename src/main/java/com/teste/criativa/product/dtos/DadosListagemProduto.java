@@ -1,6 +1,9 @@
-package com.teste.criativa.product;
+package com.teste.criativa.product.dtos;
 
-public record ProductGet(
+import com.teste.criativa.product.enums.Fornecedor;
+import com.teste.criativa.product.Product;
+
+public record DadosListagemProduto(
 		
 		Long id,
 		
@@ -8,21 +11,21 @@ public record ProductGet(
 		
 		String codigoBarras,
 		
-		int quantidade,
+		String quantidade,
 		
-		double price,
+		String preco,
 		
 		Fornecedor fornecedor,
 		
 		Boolean ativo) {
 	
-	public ProductGet(Product product) {
+	public DadosListagemProduto(Product product) {
 		this(
 				product.getId(),
 				product.getNome(),
 				product.getCodigoBarras(),
 				product.getQuantidade(),
-				product.getPrice(),
+				product.getPreco(),
 				product.getFornecedor(),
 				product.getAtivo());
 		

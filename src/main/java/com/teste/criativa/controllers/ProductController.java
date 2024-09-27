@@ -3,7 +3,6 @@ package com.teste.criativa.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.teste.criativa.product.ProductCreate;
-import com.teste.criativa.product.ProductGet;
+import com.teste.criativa.product.dtos.DadosCadastroProduto;
+import com.teste.criativa.product.dtos.DadosListagemProduto;
 import com.teste.criativa.product.Product;
 import com.teste.criativa.product.RepositoryProduct;
-import com.teste.criativa.product.ProductUpdate;
+import com.teste.criativa.product.dtos.DadosAtualizarProduto;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -35,41 +34,41 @@ public class ProductController {
 		
 	@PostMapping
 	@Transactional
-	public ResponseEntity<ProductGet> create(@RequestBody @Valid ProductCreate dados, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<DadosListagemProduto> create(@RequestBody @Valid DadosCadastroProduto dados, UriComponentsBuilder uriBuilder) {
 		var product = new Product(dados);
 		repository.save(product);
 		
 		var uri = uriBuilder.path("/products/{id}").buildAndExpand(product.getId()).toUri();
 				
-		return ResponseEntity.created(uri).body(new ProductGet(product));
+		return ResponseEntity.created(uri).body(new DadosListagemProduto(product));
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<ProductGet> getById(@PathVariable Long id) {
+	public ResponseEntity<DadosListagemProduto> getById(@PathVariable Long id) {
 		var product = repository.getReferenceById(id);
 		
-		return ResponseEntity.ok(new ProductGet(product));
+		return ResponseEntity.ok(new DadosListagemProduto(product));
 	}
 	@GetMapping
-	public ResponseEntity <List<ProductGet>> getProducts (@RequestParam (value = "ativo", required = false, defaultValue = "true") Boolean ativo) {
-		var lista = repository.findAll().stream().map(ProductGet::new).toList();
+	public ResponseEntity <List<DadosListagemProduto>> getProducts (@RequestParam (value = "ativo", required = false, defaultValue = "true") Boolean ativo) {
+		var lista = repository.findAll().stream().map(DadosListagemProduto::new).toList();
 		if (ativo == true) {
-			var listaTrue = repository.findAllByAtivoTrue().stream().map(ProductGet::new).toList();
+			var listaTrue = repository.findAllByAtivoTrue().stream().map(DadosListagemProduto::new).toList();
 			return ResponseEntity.ok(listaTrue);
 		}
 	    if (ativo == false) {
-		    var listaFalse = repository.findAllByAtivoFalse().stream().map(ProductGet::new).toList();
+		    var listaFalse = repository.findAllByAtivoFalse().stream().map(DadosListagemProduto::new).toList();
 		    return ResponseEntity.ok(listaFalse);
-	    } else return ResponseEntity.ok(lista);
+	    } return ResponseEntity.ok(lista);
 	}
 	
 	@PutMapping
 	@Transactional
-	public ResponseEntity<ProductGet> update(@RequestBody @Valid ProductUpdate dados) {
+	public ResponseEntity<DadosListagemProduto> update(@RequestBody @Valid DadosAtualizarProduto dados) {
 		var product = repository.getReferenceById(dados.id());
 		product.updateInformations(dados);
 		
-		return ResponseEntity.ok(new ProductGet(product));
+		return ResponseEntity.ok(new DadosListagemProduto(product));
 	}
 	@PutMapping("ativar/{id}")
 	@Transactional

@@ -7,7 +7,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record FuncionarioCreate(
+public record DadosCadastroFuncionario(
 		
 		@NotBlank
 		@Size(min = 1, max = 20)
@@ -23,8 +23,9 @@ public record FuncionarioCreate(
 		 
 		@Enumerated
         Sexo sexo,
-		 
-		int idade
+
+		@NotBlank
+		String idade
 		
 		 ){
 

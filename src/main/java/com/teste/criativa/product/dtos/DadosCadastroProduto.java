@@ -1,19 +1,22 @@
 package com.teste.criativa.product.dtos;
 
-import com.teste.criativa.product.Fornecedor;
+import com.teste.criativa.product.enums.Fornecedor;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
 
-public record ProductCreate(
+public record DadosCadastroProduto(
 			
 		@NotBlank
 		String nome,
 		
+		@NotBlank
 		String codigoBarras,
 		
-		int quantidade,
+		@NotBlank
+		String quantidade,
 		
-		double price,
+		@NotBlank
+		String preco,
 		
 		@Enumerated
 		Fornecedor fornecedor) {
