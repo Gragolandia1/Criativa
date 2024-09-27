@@ -1,5 +1,6 @@
-package com.teste.criativa.funcionario;
+package com.teste.criativa.funcionario.dtos;
 
+import com.teste.criativa.funcionario.enums.Sexo;
 import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Enumerated;
@@ -21,7 +22,7 @@ public record FuncionarioCreate(
 		String cpf,
 		 
 		@Enumerated
-		Sexo sexo,
+        Sexo sexo,
 		 
 		int idade
 		

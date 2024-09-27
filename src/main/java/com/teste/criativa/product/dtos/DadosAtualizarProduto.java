@@ -1,10 +1,15 @@
-package com.teste.criativa.product;
+package com.teste.criativa.product.dtos;
 
+import com.teste.criativa.product.Fornecedor;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-public record ProductCreate(
-			
+public record ProductUpdate(
+		
+		@NotNull
+		Long id,
+		
 		@NotBlank
 		String nome,
 		
@@ -12,7 +17,7 @@ public record ProductCreate(
 		
 		int quantidade,
 		
-		double price,
+		double price, 
 		
 		@Enumerated
 		Fornecedor fornecedor) {

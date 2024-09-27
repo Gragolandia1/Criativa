@@ -1,31 +1,31 @@
-package com.teste.criativa.funcionario;
+package com.teste.criativa.funcionario.dtos;
 
+import com.teste.criativa.funcionario.enums.Sexo;
 import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public record FuncionarioUpdate(
-		@NotNull
-		Long id,
+public record FuncionarioCreate(
 		
 		@NotBlank
 		@Size(min = 1, max = 20)
-		String nome,
-		
-		@NotBlank
-		@Size(min = 1, max = 50)
+	    String nome,
+	    
+	    @NotBlank
+	    @Size(min = 1, max = 50)
 		String sobrenome,
 		
 		@CPF
-		@NotBlank
+		@NotBlank(message = "CPF é obrigatório")
 		String cpf,
-		
-		@Enumerated
-		Sexo sexo,
 		 
-		int idade) {
+		@Enumerated
+        Sexo sexo,
+		 
+		int idade
+		
+		 ){
 
 }
