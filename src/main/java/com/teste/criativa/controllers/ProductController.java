@@ -75,18 +75,23 @@ public class ProductController {
 	@ApiResponse(responseCode = "200", description = "Produtos encontrados com sucesso")
 	@ApiResponse(responseCode = "403", description = "Token invalido ou expirado")
 	@ApiResponse(responseCode = "500", description = "Erro no servidor")
-	public ResponseEntity <List<DadosListagemProduto>> getProducts (@RequestParam (value = "ativo", required = false, defaultValue = "true") Boolean ativo) {
-		var lista = repository.findAll().stream().map(DadosListagemProduto::new).toList();
-		if (ativo == true) {
-			var listaTrue = repository.findAllByAtivoTrue().stream().map(DadosListagemProduto::new).toList();
-			return ResponseEntity.ok(listaTrue);
-		}
-	    if (ativo == false) {
-		    var listaFalse = repository.findAllByAtivoFalse().stream().map(DadosListagemProduto::new).toList();
-		    return ResponseEntity.ok(listaFalse);
-	    } return ResponseEntity.ok(lista);
-	}
-	
+	public ResponseEntity <List<DadosListagemProduto>> getProducts (
+		@RequestParam (value = "ativo", required = false, defaultValue = "true") Boolean ativo,
+		@RequestParam(value = "nome", required = false) String nome) {
+
+			var lista = repository.findAll().stream()
+			
+			.filter(produto -> ativo == null || (ativo ? produto.getAtivo() : !produto.getAtivo()))
+
+			.filter(produto -> nome == null || produto.getNome().contains(nome))
+
+			.map(DadosListagemProduto::new)
+
+			.toList();
+
+        return ResponseEntity.ok(lista);
+    }
+
 	@PutMapping
 	@Transactional
 	@Operation(summary = "Atualizar produto", description = "Método para atualizar produtos cadastrados")
