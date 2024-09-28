@@ -25,7 +25,7 @@ import lombok.Setter;
 @Table(name = "products")
 @EqualsAndHashCode(of = "id")
 public class Product {
-	
+		
 	public Product(DadosCadastroProduto dados) {
 		this.ativo = true;
 		this.nome = dados.nome();
@@ -71,5 +71,6 @@ public class Product {
 		this.ativo = true;
 		
 	}
-
+	
 }
+
