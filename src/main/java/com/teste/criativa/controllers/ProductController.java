@@ -77,7 +77,7 @@ public class ProductController {
 	@ApiResponse(responseCode = "403", description = "Token invalido ou expirado")
 	@ApiResponse(responseCode = "500", description = "Erro no servidor")
 	public ResponseEntity <List<DadosListagemProduto>> getProducts (
-		@RequestParam (value = "ativo", required = false, defaultValue = "true") Boolean ativo,
+		@RequestParam(value = "ativo", required = false, defaultValue = "true") Boolean ativo,
 		@RequestParam(value = "nome", required = false) String nome,
 		@RequestParam(value = "fornecedor", required = false) Fornecedor fornecedor) {
 
