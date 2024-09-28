@@ -18,6 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.teste.criativa.product.dtos.DadosCadastroProduto;
 import com.teste.criativa.product.dtos.DadosDetalhamentoProduto;
 import com.teste.criativa.product.dtos.DadosListagemProduto;
+import com.teste.criativa.product.enums.Fornecedor;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -77,13 +78,16 @@ public class ProductController {
 	@ApiResponse(responseCode = "500", description = "Erro no servidor")
 	public ResponseEntity <List<DadosListagemProduto>> getProducts (
 		@RequestParam (value = "ativo", required = false, defaultValue = "true") Boolean ativo,
-		@RequestParam(value = "nome", required = false) String nome) {
+		@RequestParam(value = "nome", required = false) String nome,
+		@RequestParam(value = "fornecedor", required = false) Fornecedor fornecedor) {
 
 			var lista = repository.findAll().stream()
-			
+
 			.filter(produto -> ativo == null || (ativo ? produto.getAtivo() : !produto.getAtivo()))
 
 			.filter(produto -> nome == null || produto.getNome().contains(nome))
+
+			.filter(produto -> fornecedor == null || produto.getFornecedor().equals(fornecedor))
 
 			.map(DadosListagemProduto::new)
 
