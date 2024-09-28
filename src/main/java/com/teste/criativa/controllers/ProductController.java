@@ -49,6 +49,7 @@ public class ProductController {
 		
 		return ResponseEntity.ok(new DadosListagemProduto(product));
 	}
+	
 	@GetMapping
 	public ResponseEntity <List<DadosListagemProduto>> getProducts (@RequestParam (value = "ativo", required = false, defaultValue = "true") Boolean ativo) {
 		var lista = repository.findAll().stream().map(DadosListagemProduto::new).toList();
@@ -70,6 +71,7 @@ public class ProductController {
 		
 		return ResponseEntity.ok(new DadosListagemProduto(product));
 	}
+
 	@PutMapping("ativar/{id}")
 	@Transactional
 	public ResponseEntity<Void> reativar (@PathVariable Long id) {
@@ -86,6 +88,7 @@ public class ProductController {
 		
 		return ResponseEntity.noContent().build();
 	}
+
 	@DeleteMapping("inativar/{id}")
 	@Transactional
 	public ResponseEntity<Void> inativar (@PathVariable Long id) {
