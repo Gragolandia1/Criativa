@@ -8,6 +8,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import java.math.BigDecimal;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
@@ -43,9 +44,9 @@ public class Product {
 	
 	private String codigoBarras;
 	
-	private String quantidade;
+	private Integer quantidade;
 	
-	private String preco;
+	private BigDecimal preco;
 	
 	@Enumerated(EnumType.STRING)
 	private Fornecedor fornecedor;
@@ -57,10 +58,19 @@ public class Product {
 		if(dados.nome()!= null ) {
 		this.nome = dados.nome();
 		}
-		
+		if(dados.codigoBarras()!= null ) {
+			this.codigoBarras = dados.codigoBarras();
+		}
+		if(dados.quantidade()!= null ) {
+			this.quantidade = dados.quantidade();
+		}
+		if(dados.preco()!= null ) {
+			this.preco = dados.preco();
+		}
 		if(dados.fornecedor()!= null ) {
 			this.fornecedor = dados.fornecedor();
 		}
+		
 	}
 
 	public void inativar() {

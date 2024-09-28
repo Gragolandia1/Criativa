@@ -2,6 +2,7 @@ package com.teste.criativa.product.dtos;
 
 import com.teste.criativa.product.Product;
 import com.teste.criativa.product.enums.Fornecedor;
+import java.math.BigDecimal;
 
 
 public record DadosDetalhamentoProduto(
@@ -11,13 +12,15 @@ public record DadosDetalhamentoProduto(
 	
 	String codigoBarras,
 	
-	String quantidade,
+	Integer quantidade,
 	
-	String preco,
+	BigDecimal preco,
 		
 	Fornecedor fornecedor,
+
+    Boolean ativo
 	
-	Boolean ativo) {
+	) {
         
         public DadosDetalhamentoProduto(Product product) {
             this(
@@ -27,7 +30,8 @@ public record DadosDetalhamentoProduto(
                 product.getQuantidade(),
                 product.getPreco(),
                 product.getFornecedor(),
-                product.getAtivo());
+                product.getAtivo()
+                );
         }
     
 }

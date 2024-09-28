@@ -1,6 +1,9 @@
 package com.teste.criativa.product.dtos;
 
 import com.teste.criativa.product.enums.Fornecedor;
+
+import java.math.BigDecimal;
+
 import com.teste.criativa.product.Product;
 
 public record DadosListagemProduto(
@@ -11,9 +14,9 @@ public record DadosListagemProduto(
 		
 		String codigoBarras,
 		
-		String quantidade,
+		Integer quantidade,
 		
-		String preco,
+		BigDecimal preco,
 		
 		Fornecedor fornecedor,
 		

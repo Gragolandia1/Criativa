@@ -1,11 +1,11 @@
 create table products(
 
-	id bigint not null auto_increment,
-	nome varchar(100) not null,
-	codigoBarras char(13) not null UNIQUE,
-	quantidade varchar(100) not null,
-	preco varchar(100) not null,
-	fornecedor varchar(100) not null,
+	id BIGINT NOT null auto_increment,
+	nome VARCHAR(100) not null,
+	codigoBarras CHAR(13) not null UNIQUE,
+	quantidade INT(100) not null,
+	preco DECIMAL(10,2) not null,
+	fornecedor VARCHAR(100) not null,
 	
 	primary key(id)
 	);
