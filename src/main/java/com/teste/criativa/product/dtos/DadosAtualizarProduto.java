@@ -1,10 +1,12 @@
 package com.teste.criativa.product.dtos;
 
 import com.teste.criativa.product.enums.Fornecedor;
+
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -19,11 +21,11 @@ public record DadosAtualizarProduto(
 		String nome,
 		
 		@NotBlank
-		@Size(max = 13, message = "O codigo de barras não pode ter mais de 13 caracteres.")
+		@Pattern(regexp = "\\d{6,13}", message = "Formato do codigo de barras é inválido. Deve conter entre 6 e 13 dígitos")
 		String codigoBarras,
 		
 		@Min(value = 1, message = "A quantidade deve ser maior que zero")
-		@NotNull(message = "A quantidade não pode estar em branco")
+		@NotNull
 		Integer quantidade,
 		
 		@Positive

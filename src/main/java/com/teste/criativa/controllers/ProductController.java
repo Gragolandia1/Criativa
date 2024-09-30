@@ -50,13 +50,13 @@ public class ProductController {
 	@ApiResponse(responseCode = "400", description = "Produto não cadastrado")
 	@ApiResponse(responseCode = "403", description = "Token invalido ou expirado")
 	@ApiResponse(responseCode = "500", description = "Erro no servidor")
-	public ResponseEntity<DadosListagemProduto> create(@RequestBody @Valid DadosCadastroProduto dados, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<DadosDetalhamentoProduto> create(@RequestBody @Valid DadosCadastroProduto dados, UriComponentsBuilder uriBuilder) {
 		var product = new Product(dados);
 		repository.save(product);
 		
 		var uri = uriBuilder.path("/products/{id}").buildAndExpand(product.getId()).toUri();
 				
-		return ResponseEntity.created(uri).body(new DadosListagemProduto(product));
+		return ResponseEntity.created(uri).body(new DadosDetalhamentoProduto(product));
 	}
 	
 	@GetMapping("/{id}")

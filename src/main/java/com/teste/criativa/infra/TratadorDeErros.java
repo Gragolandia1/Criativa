@@ -1,5 +1,9 @@
 package com.teste.criativa.infra;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
 import jakarta.persistence.EntityNotFoundException;
+
 
 @RestControllerAdvice
 public class TratadorDeErros {
@@ -27,18 +32,31 @@ public class TratadorDeErros {
 		return ResponseEntity.badRequest().body(erros.stream().map(DadosErros::new).toList());
 	}
 
+	@ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<Map<String,String>> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
+        String errorMessage = "Verifique o codigo de barras";
+        String errorCode = "DUPLICATE_DATA";
+
+        Map<String, String> errorResponse = new HashMap<>();
+        errorResponse.put("error", errorMessage);
+        errorResponse.put("code", errorCode);
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+    }
+
 	@ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<String> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
-    Throwable cause = ex.getCause();
-    if (cause instanceof InvalidFormatException invalidFormatException) {
-        if (invalidFormatException.getTargetType().isEnum()) {
-            return new ResponseEntity<>("Fornecedor invalido", HttpStatus.BAD_REQUEST);
-        }
-    }
-    return null;
-    }
+    public ResponseEntity<Map<String,String>> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
+		String errorMessage = "Verifique o fornecedor";
+        String errorCode = "FORNECEDOR INVALIDO";
+
+        Map<String, String> errorResponse = new HashMap<>();
+        errorResponse.put("error", errorMessage);
+        errorResponse.put("code", errorCode);
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+	}
 	
-	public record DadosErros(String field, String message) {
+	public record DadosErros(String campo, String mensagem) {
 		
 		public DadosErros(FieldError erro) {
 			this(erro.getField(), erro.getDefaultMessage());
