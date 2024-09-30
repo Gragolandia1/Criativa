@@ -12,14 +12,12 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-
 import jakarta.persistence.EntityNotFoundException;
 
 
 @RestControllerAdvice
 public class TratadorDeErros {
-	
+
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<?> error404 () {
 		return ResponseEntity.notFound().build();
@@ -34,7 +32,7 @@ public class TratadorDeErros {
 
 	@ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Map<String,String>> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
-        String errorMessage = "Verifique o codigo de barras";
+        String errorMessage = "Verifique os campos";
         String errorCode = "DUPLICATE_DATA";
 
         Map<String, String> errorResponse = new HashMap<>();
@@ -46,8 +44,8 @@ public class TratadorDeErros {
 
 	@ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Map<String,String>> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
-		String errorMessage = "Verifique o fornecedor";
-        String errorCode = "FORNECEDOR INVALIDO";
+		String errorMessage = "Verifique os campos";
+        String errorCode = "INVALID_DATA";
 
         Map<String, String> errorResponse = new HashMap<>();
         errorResponse.put("error", errorMessage);
