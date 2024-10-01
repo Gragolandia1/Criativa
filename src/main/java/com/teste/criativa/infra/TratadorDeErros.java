@@ -31,7 +31,7 @@ public class TratadorDeErros {
 	}
 
 	@ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<Map<String,String>> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
+    public ResponseEntity<Map<String,String>> campoUnico(DataIntegrityViolationException ex) {
         String errorMessage = "Verifique os campos";
         String errorCode = "DUPLICATE_DATA";
 
@@ -41,11 +41,13 @@ public class TratadorDeErros {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
-
+	
 	@ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Map<String,String>> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
 		String errorMessage = "Verifique os campos";
         String errorCode = "INVALID_DATA";
+
+		System.out.println();
 
         Map<String, String> errorResponse = new HashMap<>();
         errorResponse.put("error", errorMessage);

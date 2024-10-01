@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public record DadosCadastroFuncionario(
@@ -25,6 +26,7 @@ public record DadosCadastroFuncionario(
 		String cpf,
 		 
 		@Enumerated
+		@NotNull(message = "O genero nao pode ser nulo")
         Sexo sexo,
 
 		@NotBlank

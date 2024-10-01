@@ -33,5 +33,5 @@ public record DadosDetalhamentoProduto(
                 product.getAtivo()
                 );
         }
-    
+
 }

@@ -33,6 +33,7 @@ public record DadosAtualizarProduto(
 		BigDecimal preco, 
 		
 		@Enumerated
+		@NotNull(message = "O fornecedor não pode ser nulo")
 		Fornecedor fornecedor) {
 
 }

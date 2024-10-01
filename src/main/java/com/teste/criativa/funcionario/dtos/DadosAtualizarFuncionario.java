@@ -28,6 +28,7 @@ public record DadosAtualizarFuncionario(
 		String cpf,
 		 
 		@Enumerated
+		@NotNull(message = "O genero nao pode ser nulo")
         Sexo sexo,
 
 		@NotBlank
