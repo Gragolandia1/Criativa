@@ -1,5 +1,5 @@
 package com.teste.criativa.infra;
 
-public record DadosTokenJWT (String token) {
-    
+public record DadosTokenJWT(String token) {
+
 }

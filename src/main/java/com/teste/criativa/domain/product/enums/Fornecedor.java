@@ -5,9 +5,9 @@ import com.teste.criativa.utils.FornecedorDeserializer;
 
 @JsonDeserialize(using = FornecedorDeserializer.class)
 public enum Fornecedor {
-	
-	REVAL,
 
-	MABEL
+    REVAL,
+
+    MABEL
 
 }

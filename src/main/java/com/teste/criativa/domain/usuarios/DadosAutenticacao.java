@@ -1,8 +1,8 @@
 package com.teste.criativa.domain.usuarios;
 
 public record DadosAutenticacao(
-		String login,
+        String login,
 
-		String senha) {
+        String senha) {
 
 }

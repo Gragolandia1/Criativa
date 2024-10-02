@@ -5,27 +5,27 @@ import com.teste.criativa.domain.funcionario.enums.Sexo;
 
 public record DadosListagemFuncionario(
 
-		Long id,
+        Long id,
 
-		String nome,
+        String nome,
 
-		String sobrenome,
+        String sobrenome,
 
-		String cpf,
+        String cpf,
 
-		Sexo sexo,
+        Sexo sexo,
 
-		String idade
+        String idade
 ) {
-	public DadosListagemFuncionario(Funcionario funcionario) {
-		this(
-				funcionario.getId(),
-				funcionario.getNome(),
-				funcionario.getSobrenome(),
-				funcionario.getCpf(),
-				funcionario.getSexo(),
-				funcionario.getIdade());
-	}
+    public DadosListagemFuncionario(Funcionario funcionario) {
+        this(
+                funcionario.getId(),
+                funcionario.getNome(),
+                funcionario.getSobrenome(),
+                funcionario.getCpf(),
+                funcionario.getSexo(),
+                funcionario.getIdade());
+    }
 
 
 }
