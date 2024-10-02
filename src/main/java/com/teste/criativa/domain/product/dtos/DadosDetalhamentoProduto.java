@@ -1,7 +1,7 @@
-package com.teste.criativa.product.dtos;
+package com.teste.criativa.domain.product.dtos;
 
-import com.teste.criativa.product.Product;
-import com.teste.criativa.product.enums.Fornecedor;
+import com.teste.criativa.domain.product.Product;
+import com.teste.criativa.domain.product.enums.Fornecedor;
 import java.math.BigDecimal;
 
 

@@ -2,7 +2,7 @@ package com.teste.criativa.utils;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.teste.criativa.product.enums.Fornecedor;
+import com.teste.criativa.domain.product.enums.Fornecedor;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.teste.criativa.product.enums;
+package com.teste.criativa.domain.product.enums;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.teste.criativa.utils.FornecedorDeserializer;

@@ -1,8 +1,8 @@
-package com.teste.criativa.product;
+package com.teste.criativa.domain.product;
 
-import com.teste.criativa.product.dtos.DadosCadastroProduto;
-import com.teste.criativa.product.dtos.DadosAtualizarProduto;
-import com.teste.criativa.product.enums.Fornecedor;
+import com.teste.criativa.domain.product.dtos.DadosCadastroProduto;
+import com.teste.criativa.domain.product.dtos.DadosAtualizarProduto;
+import com.teste.criativa.domain.product.enums.Fornecedor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

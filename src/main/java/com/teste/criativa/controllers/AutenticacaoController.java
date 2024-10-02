@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.teste.criativa.infra.DadosTokenJWT;
 import com.teste.criativa.infra.SecurityConfigurations;
 import com.teste.criativa.infra.TokenService;
-import com.teste.criativa.usuarios.DadosAutenticacao;
-import com.teste.criativa.usuarios.Usuario;
+import com.teste.criativa.domain.usuarios.DadosAutenticacao;
+import com.teste.criativa.domain.usuarios.Usuario;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

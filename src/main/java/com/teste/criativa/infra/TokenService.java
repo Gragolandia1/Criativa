@@ -11,7 +11,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.teste.criativa.usuarios.Usuario;
+import com.teste.criativa.domain.usuarios.Usuario;
 
 @Service
 public class TokenService {

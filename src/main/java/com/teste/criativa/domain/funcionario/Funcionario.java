@@ -1,9 +1,9 @@
-package com.teste.criativa.funcionario;
+package com.teste.criativa.domain.funcionario;
 
 
-import com.teste.criativa.funcionario.dtos.DadosAtualizarFuncionario;
-import com.teste.criativa.funcionario.dtos.DadosCadastroFuncionario;
-import com.teste.criativa.funcionario.enums.Sexo;
+import com.teste.criativa.domain.funcionario.dtos.DadosAtualizarFuncionario;
+import com.teste.criativa.domain.funcionario.dtos.DadosCadastroFuncionario;
+import com.teste.criativa.domain.funcionario.enums.Sexo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

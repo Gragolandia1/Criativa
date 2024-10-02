@@ -1,4 +1,4 @@
-package com.teste.criativa.product;
+package com.teste.criativa.domain.product;
 
 import java.util.List;
 

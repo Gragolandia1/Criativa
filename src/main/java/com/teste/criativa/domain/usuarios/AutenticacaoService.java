@@ -1,4 +1,4 @@
-package com.teste.criativa.usuarios;
+package com.teste.criativa.domain.usuarios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

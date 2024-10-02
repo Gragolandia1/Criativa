@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.cfg.CoercionAction;
 import com.fasterxml.jackson.databind.cfg.CoercionInputShape;
-import com.teste.criativa.product.enums.Fornecedor;
+import com.teste.criativa.domain.product.enums.Fornecedor;
 
 @Configuration
 public class JacksonConfig {

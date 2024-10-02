@@ -1,7 +1,7 @@
-package com.teste.criativa.funcionario.dtos;
+package com.teste.criativa.domain.funcionario.dtos;
 
-import com.teste.criativa.funcionario.Funcionario;
-import com.teste.criativa.funcionario.enums.Sexo;
+import com.teste.criativa.domain.funcionario.Funcionario;
+import com.teste.criativa.domain.funcionario.enums.Sexo;
 
 public record DadosDetalhamentoFuncionario(
 

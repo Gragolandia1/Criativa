@@ -1,6 +1,6 @@
-package com.teste.criativa.product.dtos;
+package com.teste.criativa.domain.product.dtos;
 
-import com.teste.criativa.product.enums.Fornecedor;
+import com.teste.criativa.domain.product.enums.Fornecedor;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

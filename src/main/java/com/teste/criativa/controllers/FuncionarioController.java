@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.teste.criativa.funcionario.Funcionario;
-import com.teste.criativa.funcionario.RepositoryFuncionario;
-import com.teste.criativa.funcionario.dtos.DadosAtualizarFuncionario;
-import com.teste.criativa.funcionario.dtos.DadosCadastroFuncionario;
-import com.teste.criativa.funcionario.dtos.DadosDetalhamentoFuncionario;
-import com.teste.criativa.funcionario.dtos.DadosListagemFuncionario;
+import com.teste.criativa.domain.funcionario.Funcionario;
+import com.teste.criativa.domain.funcionario.RepositoryFuncionario;
+import com.teste.criativa.domain.funcionario.dtos.DadosAtualizarFuncionario;
+import com.teste.criativa.domain.funcionario.dtos.DadosCadastroFuncionario;
+import com.teste.criativa.domain.funcionario.dtos.DadosDetalhamentoFuncionario;
+import com.teste.criativa.domain.funcionario.dtos.DadosListagemFuncionario;
 import com.teste.criativa.infra.SecurityConfigurations;
 
 import io.swagger.v3.oas.annotations.Operation;

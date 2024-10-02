@@ -1,4 +1,4 @@
-package com.teste.criativa.funcionario;
+package com.teste.criativa.domain.funcionario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

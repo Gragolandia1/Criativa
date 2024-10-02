@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.teste.criativa.product.dtos.DadosCadastroProduto;
-import com.teste.criativa.product.dtos.DadosDetalhamentoProduto;
-import com.teste.criativa.product.dtos.DadosListagemProduto;
-import com.teste.criativa.product.enums.Fornecedor;
+import com.teste.criativa.domain.product.dtos.DadosCadastroProduto;
+import com.teste.criativa.domain.product.dtos.DadosDetalhamentoProduto;
+import com.teste.criativa.domain.product.dtos.DadosListagemProduto;
+import com.teste.criativa.domain.product.enums.Fornecedor;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -26,9 +26,9 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import com.teste.criativa.infra.SecurityConfigurations;
-import com.teste.criativa.product.Product;
-import com.teste.criativa.product.RepositoryProduct;
-import com.teste.criativa.product.dtos.DadosAtualizarProduto;
+import com.teste.criativa.domain.product.Product;
+import com.teste.criativa.domain.product.RepositoryProduct;
+import com.teste.criativa.domain.product.dtos.DadosAtualizarProduto;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

@@ -1,4 +1,4 @@
-package com.teste.criativa.usuarios;
+package com.teste.criativa.domain.usuarios;
 
 import java.util.Collection;
 import java.util.List;
@@ -32,15 +32,19 @@ public class Usuario implements UserDetails{
 	private Long id;
 	
 	private String login;
+
 	private String senha;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return List.of(new SimpleGrantedAuthority("ROLE_USER"));
 	}
+
 	@Override
 	public String getPassword() {
 		return senha;
 	}
+
 	@Override
 	public String getUsername() {
 		return login;
