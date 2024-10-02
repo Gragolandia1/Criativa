@@ -2,10 +2,7 @@ package com.teste.criativa.domain.funcionario.dtos;
 
 import com.teste.criativa.domain.funcionario.enums.Sexo;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 public record DadosAtualizarFuncionario(
@@ -32,7 +29,7 @@ public record DadosAtualizarFuncionario(
         Sexo sexo,
 
         @NotBlank
-        @Pattern(regexp = "\\d{18,60}", message = "Digite a idade corretamente")
+        @Min(value = 18, message = "Idade invalida")
         String idade
 
 ) {
