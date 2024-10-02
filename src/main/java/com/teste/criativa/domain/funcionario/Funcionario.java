@@ -47,9 +47,14 @@ public class Funcionario {
         if (dados.sobrenome() != null) {
             this.sobrenome = dados.sobrenome();
         }
-
+        if (dados.cpf() != null) {
+            this.cpf = dados.cpf();
+        }
         if (dados.sexo() != null) {
             this.sexo = dados.sexo();
+        }
+        if (dados.idade() != null) {
+            this.idade = dados.idade();
         }
     }
 }
