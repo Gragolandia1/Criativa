@@ -24,7 +24,7 @@ public record DadosCadastroFuncionario(
         String cpf,
 
         @Enumerated
-        @NotNull(message = "O genero nao pode ser nulo")
+        @NotNull(message = "O campo 'sexo' nao pode ser nulo")
         Sexo sexo,
 
         @NotBlank
