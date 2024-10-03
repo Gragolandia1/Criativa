@@ -36,13 +36,13 @@ public class FuncionarioController {
     @ApiResponse(responseCode = "403", description = "Token invalido ou expirado")
     @ApiResponse(responseCode = "404", description = "Funcionario não encontrado")
     @ApiResponse(responseCode = "500", description = "Erro no servidor")
-    public ResponseEntity<DadosListagemFuncionario> create(@RequestBody @Valid DadosCadastroFuncionario dados, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<DadosDetalhamentoFuncionario> create(@RequestBody @Valid DadosCadastroFuncionario dados, UriComponentsBuilder uriBuilder) {
         var funcionario = new Funcionario(dados);
         repository.save(funcionario);
 
         var uri = uriBuilder.path("/funcionario/{id}").buildAndExpand(funcionario.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(new DadosListagemFuncionario(funcionario));
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoFuncionario(funcionario));
     }
 
     @GetMapping
