@@ -21,7 +21,7 @@ public record DadosCadastroProduto(
         Integer quantidade,
 
         @Positive
-        @NotNull
+        @NotNull(message = "O preço não pode estar em branco")
         BigDecimal preco,
 
         @Enumerated
