@@ -33,8 +33,8 @@ class ProductControllerTest {
         String jsonRequest = "{\"nome\":\"Produto Teste\",\"codigoBarras\":\"221312512\",\"quantidade\":1,\"preco\":2.00,\"fornecedor\":\"REVAL\"}";
 
         mockMvc.perform(post("/products")
-                        .contentType(MediaType.APPLICATION_JSON) // Especifica o tipo MIME
-                        .content(jsonRequest)) // Aqui você coloca o JSON como conteúdo
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonRequest))
                 .andExpect(status().isCreated());
     }
     @Test
@@ -45,7 +45,7 @@ class ProductControllerTest {
         mockMvc.perform(post("/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonRequest))
-                .andExpect(status().isBadRequest()); // Espera um 400 Bad Request
+                .andExpect(status().isBadRequest());
     }
 
 
