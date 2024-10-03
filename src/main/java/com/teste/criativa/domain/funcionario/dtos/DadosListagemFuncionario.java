@@ -15,8 +15,8 @@ public record DadosListagemFuncionario(
 
         Sexo sexo,
 
-        String idade
-) {
+        String idade) {
+
     public DadosListagemFuncionario(Funcionario funcionario) {
         this(
                 funcionario.getId(),
