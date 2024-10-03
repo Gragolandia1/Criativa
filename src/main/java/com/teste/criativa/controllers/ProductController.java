@@ -71,7 +71,7 @@ public class ProductController {
 
         var lista = repository.findAll().stream()
 
-                .filter(produto -> ativo == null || (ativo ? produto.getAtivo() : !produto.getAtivo()))
+                .filter(produto -> ativo == null || (ativo == produto.getAtivo()))
 
                 .filter(produto -> nome == null || produto.getNome().contains(nome))
 
