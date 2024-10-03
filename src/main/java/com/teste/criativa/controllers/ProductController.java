@@ -73,7 +73,7 @@ public class ProductController {
 
                 .filter(produto -> ativo == null || (ativo == produto.getAtivo()))
 
-                .filter(produto -> nome == null || produto.getNome().contains(nome))
+                .filter(produto -> nome == null || produto.getNome().equals(nome))
 
                 .filter(produto -> fornecedor == null || produto.getFornecedor().equals(fornecedor))
 
