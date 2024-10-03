@@ -6,8 +6,4 @@ import java.util.List;
 
 public interface RepositoryProduct extends JpaRepository<Product, Long> {
 
-    List<Product> findAllByAtivoTrue();
-
-    List<Product> findAllByAtivoFalse();
-
 }
