@@ -17,11 +17,7 @@ public record DadosDetalhamentoProduto(
 
         BigDecimal preco,
 
-        Fornecedor fornecedor,
-
-        Boolean ativo
-
-) {
+        Fornecedor fornecedor) {
 
     public DadosDetalhamentoProduto(Product product) {
         this(
@@ -30,8 +26,7 @@ public record DadosDetalhamentoProduto(
                 product.getCodigoBarras(),
                 product.getQuantidade(),
                 product.getPreco(),
-                product.getFornecedor(),
-                product.getAtivo()
+                product.getFornecedor()
         );
     }
 
