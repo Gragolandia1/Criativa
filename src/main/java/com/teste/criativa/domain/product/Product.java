@@ -3,9 +3,19 @@ package com.teste.criativa.domain.product;
 import com.teste.criativa.domain.product.dtos.DadosAtualizarProduto;
 import com.teste.criativa.domain.product.dtos.DadosCadastroProduto;
 import com.teste.criativa.domain.product.enums.Fornecedor;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.Valid;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
