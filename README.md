@@ -10,7 +10,7 @@ Importante : A API ainda não esta com todas as funcionalidades, então para faz
  
 - Autenticação com JWT: A API oferece um método de login que retorna um token JWT (JSON Web Token), que é necessário para realizar as requisições. Esse token garante a segurança do acesso e controle das operações realizadas.
 - Gerenciamento de Produtos e Funcionários: A API suporta CRUD completo (Create, Read, Update, Delete) para ambos.
-- Validação de Dados: Utilizamos o Bean Validation para garantir que todos os dados enviados sejam válidos e atendam aos critérios necessários.
+- Validação de Dados: Utilizei o Hibernate Validation para garantir que todos os dados enviados sejam válidos e atendam aos critérios necessários.
 - Tratamento de Exceções: Erros são tratados de maneira robusta para fornecer feedback adequado aos usuários em caso de falhas.
 - Banco de Dados MySQL: A persistência de dados é feita utilizando o banco de dados MySQL, garantindo armazenamento seguro e eficiente das informações.
 
