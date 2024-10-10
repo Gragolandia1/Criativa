@@ -15,7 +15,7 @@ public record DadosDetalhamentoFuncionario(
 
         Sexo sexo,
 
-        String idade) {
+        Integer idade) {
 
     public DadosDetalhamentoFuncionario(Funcionario funcionario) {
         this(

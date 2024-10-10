@@ -48,7 +48,7 @@ public class Funcionario {
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
-    private String idade;
+    private Integer idade;
 
     public void atualizarInformacoes(@Valid DadosAtualizarFuncionario dados) {
         if (dados.nome() != null) {

@@ -27,9 +27,9 @@ public record DadosCadastroFuncionario(
         @NotNull(message = "O campo 'sexo' nao pode ser nulo")
         Sexo sexo,
 
-        @NotBlank
-        @Min(value = 18, message = "Idade invalida")
-        String idade
+        @NotNull
+        @Min(value = 18, message = "Idade deve ser maior ou igual a 18")
+        Integer idade
 
 ) {
 
